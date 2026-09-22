@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>최정민 — 포트폴리오</title>
+    <style>
+        :root {
+            --portfolio-owner: "최정민";
+            --portfolio-type: "Product Engineering"
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: #e9e9e9;
+            color: #202020;
+            font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+            font-size: 15px;
+            line-height: 1.65
+        }
+
+        .sheet {
+            width: 1120px;
+            min-height: 790px;
+            margin: 28px auto;
+            background: #fff;
+            padding: 38px 50px 44px;
+            position: relative
+        }
+
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .cover-main {
+            margin-top: 90px
+        }
+
+        .cover-kicker {
+            font-size: 12px;
+            letter-spacing: .13em;
+            color: #667085
+        }
+
+        .cover h1 {
+            max-width: 720px;
+            margin: 18px 0 20px;
+            font-size: 48px;
+            line-height: 1.08
+        }
+
+        .cover-lead {
+            max-width: 650px;
+            font-size: 17px;
+            line-height: 1.65
+        }
+
+        .toc header {
+            margin: 28px 0 30px
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px 44px
+        }
+
+        .toc-group {
+            border-top: 3px solid #222;
+            padding-top: 12px
+        }
+
+        .toc-priority {
+            color: #667085;
+            font-size: 12px;
+            font-weight: 650;
+            letter-spacing: .1em
+        }
+
+        .toc-group h2 {
+            margin: 4px 0 12px;
+            font-size: 20px;
+            letter-spacing: -.03em
+        }
+
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .toc-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 9px 0;
+            border-top: 1px solid #d7dce2;
+            color: #303640;
+            font-size: 14px;
+            line-height: 1.35
+        }
+
+        .toc-list b {
+            flex: 0 0 28px;
+            color: #667085;
+            font-size: 12px
+        }
+
+        section.sheet:not(.cover):not(.toc) header::before {
+            display: block;
+            margin-bottom: 8px;
+            color: #667085;
+            font-size: 11px;
+            font-weight: 650;
+            letter-spacing: .08em
+        }
+
+        section.sheet:nth-of-type(3) header::before,
+        section.sheet:nth-of-type(4) header::before,
+        section.sheet:nth-of-type(5) header::before {
+            content: "PRIORITY 01 / CORE SYSTEMS, DATA & INTELLIGENCE"
+        }
+
+        section.sheet:nth-of-type(6) header::before,
+        section.sheet:nth-of-type(7) header::before,
+        section.sheet:nth-of-type(8) header::before,
+        section.sheet:nth-of-type(9) header::before {
+            content: "PRIORITY 02 / PRODUCT INTERACTION & OPERATIONS"
+        }
+
+        section.sheet:nth-of-type(10) header::before,
+        section.sheet:nth-of-type(11) header::before,
+        section.sheet:nth-of-type(12) header::before {
+            content: "PRIORITY 03 / DELIVERY SYSTEM"
+        }
+
+        section.sheet:nth-of-type(13) header::before {
+            content: "PRIORITY 04 / ENGINEERING METHOD"
+        }
+
+        .running {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #222;
+            padding-bottom: 12px;
+            font-size: 11px;
+            letter-spacing: .04em
+        }
+
+        .portfolio-owner::after {
+            content: var(--portfolio-owner) " / " var(--portfolio-type)
+        }
+
+        header {
+            margin: 27px 0 24px
+        }
+
+        h1 {
+            font-size: 32px;
+            letter-spacing: -.045em;
+            line-height: 1.25;
+            margin: 0 0 10px;
+            font-weight: 650
+        }
+
+        h2 {
+            font-size: 17px;
+            font-weight: 650;
+            margin: 0 0 12px
+        }
+
+        p {
+            margin: 0;
+            color: #3f4650;
+            max-width: 900px
+        }
+
+        figure {
+            margin: 0
+        }
+
+        figcaption, .note {
+            font-size: 12px;
+            color: #59636e;
+            line-height: 1.5;
+            margin-top: 9px
+        }
+
+        svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            font-family: inherit
+        }
+
+        svg text {
+            font-family: inherit
+        }
+
+        .rule {
+            border-top: 1px solid #ddd;
+            padding-top: 14px;
+            margin-top: 16px
+        }
+
+        .cols {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 38px
+        }
+
+        pre {
+            font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+            margin: 0;
+            padding: 16px 0;
+            border-top: 1px solid #ddd;
+            white-space: pre-wrap;
+            color: #333
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            gap: 32px
+        }
+
+        .steps b {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 6px
+        }
+
+        .steps p {
+            font-size: 13px
+        }
+
+        footer {
+            position: absolute;
+            bottom: 19px;
+            left: 50px;
+            right: 50px;
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 10px
+        }
+
+        .plot {
+            width: 100%;
+            display: block
+        }
+
+        .evidence-board {
+            width: 100%;
+            height: 310px;
+            display: block;
+            object-fit: cover;
+            object-position: top;
+            border: 1px solid #cbd2d9
+        }
+
+        .evidence-issue {
+            width: 100%;
+            height: 445px;
+            display: block;
+            object-fit: cover;
+            object-position: top;
+            border: 1px solid #cbd2d9
+        }
+
+        .evidence-issue-wide {
+            width: 100%;
+            height: 355px;
+            display: block;
+            object-fit: cover;
+            object-position: top;
+            border: 1px solid #cbd2d9
+        }
+
+        .selector-evidence {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px solid #ddd
+        }
+
+        .selector-evidence figure {
+            margin: 0;
+            flex: 0 0 auto
+        }
+
+        .selector-evidence img {
+            display: block;
+            height: 220px;
+            width: auto;
+            border: 1px solid #cbd2d9;
+            object-fit: contain
+        }
+
+        .selector-evidence figcaption {
+            max-width: 156px
+        }
+
+        .workflow-diagram {
+            display: block;
+            width: 100%;
+            height: 270px
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 15px
+        }
+
+        .case-grid > div {
+            border-top: 2px solid #222;
+            padding-top: 9px
+        }
+
+        .case-grid h2 {
+            font-size: 15px;
+            margin: 0 0 6px
+        }
+
+        .case-grid p {
+            font-size: 13px;
+            line-height: 1.55;
+            margin: 0
+        }
+
+        .model-routing {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin: 12px 0 0;
+            background: #cbd2d9;
+            border: 1px solid #cbd2d9
+        }
+
+        .model-routing div {
+            background: #f7f8fa;
+            padding: 9px 13px
+        }
+
+        .model-routing b {
+            display: block;
+            font-size: 13px
+        }
+
+        .model-routing span {
+            color: #59636e;
+            font-size: 12px
+        }
+
+        .ml-grid {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 35px;
+            align-items: start
+        }
+
+        .matrix {
+            height: 242px;
+            width: 100%;
+            object-fit: contain
+        }
+
+        .results {
+            font-size: 13px;
+            width: 100%;
+            border-collapse: collapse
+        }
+
+        .results th, .results td {
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            padding: 8px 0
+        }
+
+        .results th {
+            font-weight: 500;
+            color: #777
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns:repeat(4, 1fr);
+            border-top: 1px solid #ddd;
+            margin-top: 18px
+        }
+
+        .metric-grid div {
+            padding: 11px 14px 0 0
+        }
+
+        .metric-grid b {
+            display: block;
+            font-size: 22px;
+            font-weight: 650;
+            letter-spacing: -.04em
+        }
+
+        .metric-grid span {
+            font-size: 12px;
+            color: #777
+        }
+
+        .metric-grid--three {
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        svg text[font-size="10"] { font-size: 11px }
+        svg text[font-size="11"] { font-size: 12px }
+        svg text[font-size="12"] { font-size: 13px }
+
+        section.sheet:nth-of-type(5) > figure:nth-of-type(2) {
+            display: none
+        }
+
+        section.sheet:nth-of-type(10) > figure:nth-of-type(2),
+        section.sheet:nth-of-type(10) > figure:nth-of-type(3) {
+            display: none
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0
+        }
+
+        @media print {
+            body {
+                background: white
+            }
+
+            .sheet {
+                width: 297mm;
+                height: 210mm;
+                min-height: 0;
+                margin: 0;
+                padding: 10mm 13mm 12mm;
+                break-after: page;
+                page-break-after: always
+            }
+
+            .sheet:last-child {
+                break-after: auto;
+                page-break-after: auto
+            }
+
+            * {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact
+            }
+
+            footer {
+                left: 13mm;
+                right: 13mm;
+                bottom: 5mm
+            }
+        }
+
+        @media screen and (max-width: 1140px) {
+            .sheet {
+                width: calc(100% - 24px);
+                min-height: 0;
+                padding: 28px 25px 55px
+            }
+
+            .cols, .ml-grid {
+                gap: 20px
+            }
+
+            footer {
+                left: 25px;
+                right: 25px
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            .cols, .ml-grid, .steps {
+                grid-template-columns:1fr
+            }
+
+            .running {
+                font-size: 9px
+            }
+
+            h1 {
+                font-size: 23px
+            }
+        }
+    </style>
+</head>
+<body>
+<section class="sheet cover">
+    <div class="cover-main">
+        <div class="cover-kicker">PRODUCT ENGINEERING PORTFOLIO</div>
+        <h1>최정민 포트폴리오</h1>
+        <h3 style="font-size: 24px ">코드, 데이터, 운영 규칙을<br/>하나의 실행 흐름으로 설계합니다</h3>
+
+        <p class="cover-lead">실시간 전달, 컴퓨터 비전, 데이터 아키텍처, 상호작용 UX, 보안, AI-native 개발까지.<br/>
+            상태·경계·운영 규칙을 설계하고 실제 환경에서 검증한 작업을 정리했습니다.</p>
+    </div>
+    <footer><span class="portfolio-owner"></span><span>START</span></footer>
+</section>
+<section class="sheet toc">
+    <div class="running"><span>CONTENTS</span><span>PORTFOLIO MAP</span></div>
+    <header><h1>작업 범위와 우선순위</h1>
+        <p>구현 복잡도와 제품 영향이 높은 시스템부터 배치했습니다.</p>
+    </header>
+    <div class="toc-grid">
+        <section class="toc-group"><div class="toc-priority">01</div><h2>핵심 시스템·데이터·지능</h2><ul class="toc-list"><li><b>01</b>실시간 전달 계층 · WebSocket·Service Worker</li><li><b>02</b>컴퓨터 비전 · 라벨링·객체 탐지 성능 검증</li><li><b>03</b>데이터 아키텍처 · 레거시 조회 정규화 전환</li></ul></section>
+        <section class="toc-group"><div class="toc-priority">02</div><h2>상호작용·운영</h2><ul class="toc-list"><li><b>04</b>상호작용 시스템 · 레이아웃 편집·CRUD</li><li><b>05</b>전환 흐름 · 인증 전후 사용자 의도 복구</li><li><b>06</b>운영 엔지니어링 · 권한 제어·조회 UX</li><li><b>07</b>애플리케이션 보안 · 요청 경계 제어</li></ul></section>
+        <section class="toc-group"><div class="toc-priority">03</div><h2>전달 체계</h2><ul class="toc-list"><li><b>08</b>개발 운영 · 칸반 기반 작업 관리</li><li><b>09</b>기능 명세 · 이슈 템플릿</li><li><b>10</b>Progressive Web App · 설치·오프라인 경험</li></ul></section>
+        <section class="toc-group"><div class="toc-priority">04</div><h2>개발 방법론</h2><ul class="toc-list"><li><b>11</b>AI-native 엔지니어링 · 모델 라우팅·검증 루프</li></ul></section>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>CONTENTS</span></footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>01 / 11</span>
+    </div>
+    <header><h1>실시간 전달 계층: WebSocket·Service Worker</h1>
+        <p>메시지 구조와 소켓 종료 조건을 보완하고, 서비스 워커 알림에 본문·발신자·채널 맥락을 전달했습니다.</p>
+    </header>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 220" role="img" aria-label="realtime">
+            <defs>
+                <marker id="realtime" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <path d="M0 1 L7 4 L0 7" fill="none" stroke="#444"/>
+                </marker>
+            </defs>
+            <text x="5" y="18" font-size="12" fill="#777">메시지 처리</text>
+            <rect x="5" y="48" width="180" height="70" fill="white" stroke="#999"/>
+            <text x="19" y="72" font-size="15" fill="#222">WebSocket</text>
+            <path d="M185 83H250" fill="none" stroke="#555" stroke-width="1.3"/>
+            <text x="199" y="72" font-size="11" fill="#222">수신</text>
+            <rect x="250" y="48" width="210" height="70" fill="white" stroke="#999"/>
+            <text x="264" y="72" font-size="15" fill="#222">이벤트 해석</text>
+            <path d="M460 83H515V48H580" fill="none" stroke="#555" stroke-width="1.3"/>
+            <path d="M515 83V173H580" fill="none" stroke="#555" stroke-width="1.3"/>
+            <rect x="580" y="13" width="180" height="70" fill="white" stroke="#999"/>
+            <text x="594" y="37" font-size="15" fill="#222">메시지 상태 갱신</text>
+            <rect x="580" y="138" width="180" height="70" fill="white" stroke="#999"/>
+            <text x="594" y="162" font-size="15" fill="#222">알림 본문 구성</text>
+            <path d="M760 173H810" fill="none" stroke="#555" stroke-width="1.3"/>
+            <rect x="810" y="138" width="185" height="70" fill="white" stroke="#999"/>
+            <text x="824" y="162" font-size="15" fill="#222">Service Worker</text>
+            <text x="815" y="112" font-size="12" fill="#222">채널·발신자 맥락 전달</text>
+            <text x="585" y="108" font-size="12" fill="#777">채팅 화면</text>
+        </svg>
+        <figcaption>기존 실시간 채팅 기반에 기여한 처리 흐름. 서비스 워커 알림 연계는 당시 구현 기준입니다.</figcaption>
+    </figure>
+    <div class="cols rule">
+        <div><h2>알림 맥락 전달</h2>
+            <pre>const registration =
+  await navigator.serviceWorker.ready;
+
+await registration.showNotification('새 메시지', {
+  body: getMessageBody(message),
+  data: {
+    cid: message.cid,
+    hid: message.hid
+  },
+  actions: [
+    { action: 'open', title: '보기' },
+    { action: 'close', title: '닫기' }
+  ]
+});</pre>
+            <p class="note">실제 구현 발췌 · 알림 제목 일반화 · 인증 및 연결 주소 생략</p>
+        </div>
+        <div><h2>연결 수명주기</h2>
+            <pre>if (
+  webSocket.readyState === WebSocket.OPEN ||
+  webSocket.readyState === WebSocket.CONNECTING ||
+  webSocket.readyState === WebSocket.CLOSING
+) {
+  webSocket.close();
+}
+
+const delay = Math.min(
+  1000 * 2 ** reconnectCount, 30000
+);</pre>
+            <div class="rule"><h2>검증 가능한 운영 규칙</h2>
+                <p style="font-size:13px">연결 중복 방지 · JSON 파싱 예외 처리 · OPEN 상태에서만 전송 · 가시성/온라인 복귀 시 재연결 · 리스너·타이머 정리</p>
+                <div class="metric-grid">
+                    <div><b>1s</b><span>재연결 시작 지연</span></div>
+                    <div><b>30s</b><span>재연결 최대 지연</span></div>
+                    <div><b>4</b><span>연결 상태 분기</span></div>
+                    <div><b>1000</b><span>정상 종료 코드</span></div>
+                </div>
+                <p class="note">상단은 당시 기여 코드, 하단은 현재 소스에서 확인한 연결 안정화 규칙입니다.</p>
+            </div>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>01</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>02 / 11</span>
+    </div>
+    <header><h1>컴퓨터 비전: 라벨링·객체 탐지 성능 검증</h1>
+        <p>이미지 라벨링과 객체 탐지 작업에 참여했습니다. 실험 로그로 모델별 검증 결과를 비교했습니다.</p>
+    </header>
+    <figure><img class="plot" style="height:275px;object-fit:contain" src="assets/ml/cv-training-results.png"
+                 alt="실제 학습 결과: 손실과 정밀도, 재현율, mAP 곡선">
+        <figcaption>별도 데이터 설정의 YOLOv8x 실험 · 입력 1,280px · 최고 검증 mAP@50 90.9%, mAP@50:95 75.5%</figcaption>
+    </figure>
+    <div class="ml-grid rule">
+        <figure><img class="matrix" src="assets/ml/cv-confusion-matrix.png" alt="객체 클래스별 정규화 혼동 행렬">
+            <figcaption>동일 실험 폴더의 정규화 혼동 행렬</figcaption>
+        </figure>
+        <div><h2>3개 폴드에서 비교한 모델 결과</h2>
+            <table class="results">
+                <thead>
+                <tr>
+                    <th>지표</th>
+                    <th>v8s</th>
+                    <th>v8x</th>
+                    <th>변화</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>mAP@50</td>
+                    <td>72.03%</td>
+                    <td>74.47%</td>
+                    <td>+2.44%p</td>
+                </tr>
+                <tr>
+                    <td>mAP@50:95</td>
+                    <td>46.05%</td>
+                    <td>47.91%</td>
+                    <td>+1.86%p</td>
+                </tr>
+                <tr>
+                    <td>재현율</td>
+                    <td>71.41%</td>
+                    <td>73.83%</td>
+                    <td>+2.42%p</td>
+                </tr>
+                <tr>
+                    <td>정밀도</td>
+                    <td>81.73%</td>
+                    <td>82.10%</td>
+                    <td>+0.38%p</td>
+                </tr>
+                </tbody>
+            </table>
+            <p class="note">각 폴드의 최고 mAP@50:95 시점 평균. 데이터 설정 경로·입력 1,024px·batch 16은 같고 조기 종료 설정은 다릅니다. 상단 단일 실험과는 검증
+                데이터 설정이 다릅니다.</p>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>02</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>03 / 11</span>
+    </div>
+    <header><h1>데이터 아키텍처: 레거시 조회 정규화 전환</h1>
+        <p>반복되는 문자열 속성을 참조 관계로 연결하고, 분석 조회를 공통 저장소 계층으로 옮겼습니다.</p>
+    </header>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-label="정규화된 데이터 모델 ERD">
+            <text x="30" y="24" font-size="14" fill="#222">Normalized read model · ERD</text>
+            <text x="30" y="47" font-size="12" fill="#667085">PK·FK와 1:N 카디널리티로 읽는 분석 조회 데이터 구조</text>
+            <path d="M300 120H370 M300 280H370 M465 195V220" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+            <text x="323" y="109" font-size="12" fill="#4b5563">1</text><text x="348" y="109" font-size="12" fill="#4b5563">N</text>
+            <text x="323" y="269" font-size="12" fill="#4b5563">1</text><text x="348" y="269" font-size="12" fill="#4b5563">N</text>
+            <text x="478" y="211" font-size="12" fill="#4b5563">1 : N</text>
+            <rect x="90" y="75" width="210" height="120" rx="4" fill="white" stroke="#8792a0"/><rect x="90" y="75" width="210" height="35" rx="4" fill="#edf3ff"/><text x="108" y="98" font-size="15" font-weight="600" fill="#1f2937">CATEGORY</text><text x="108" y="136" font-size="12" fill="#374151">PK  id</text><text x="108" y="160" font-size="12" fill="#374151">label</text><text x="108" y="184" font-size="12" fill="#374151">display_order</text>
+            <rect x="370" y="75" width="190" height="120" rx="4" fill="white" stroke="#8792a0"/><rect x="370" y="75" width="190" height="35" rx="4" fill="#edf3ff"/><text x="388" y="98" font-size="15" font-weight="600" fill="#1f2937">RESOURCE</text><text x="388" y="136" font-size="12" fill="#374151">PK  id</text><text x="388" y="160" font-size="12" fill="#374151">FK  category_id</text><text x="388" y="184" font-size="12" fill="#374151">resource_key</text>
+            <rect x="90" y="220" width="210" height="120" rx="4" fill="white" stroke="#8792a0"/><rect x="90" y="220" width="210" height="35" rx="4" fill="#edf3ff"/><text x="108" y="243" font-size="15" font-weight="600" fill="#1f2937">ENTITY</text><text x="108" y="281" font-size="12" fill="#374151">PK  id</text><text x="108" y="305" font-size="12" fill="#374151">FK  organization_id</text><text x="108" y="329" font-size="12" fill="#374151">UUID</text>
+            <rect x="370" y="220" width="190" height="120" rx="4" fill="white" stroke="#8792a0"/><rect x="370" y="220" width="190" height="35" rx="4" fill="#e5f4f4"/><text x="388" y="243" font-size="15" font-weight="600" fill="#1f2937">ASSIGNMENT</text><text x="388" y="281" font-size="12" fill="#374151">PK  id</text><text x="388" y="305" font-size="12" fill="#374151">FK  entity_id</text><text x="388" y="329" font-size="12" fill="#374151">FK  resource_id</text>
+            <rect x="690" y="75" width="230" height="180" rx="4" fill="#f7f8fa" stroke="#aeb7c2" stroke-dasharray="5 4"/><text x="712" y="103" font-size="14" font-weight="600" fill="#1f2937">ANALYSIS REPOSITORIES</text><path d="M710 118H900 M710 160H900 M710 202H900" stroke="#d0d6de"/><text x="712" y="144" font-size="12" fill="#374151">History read model</text><text x="712" y="186" font-size="12" fill="#374151">Catalog read model</text><text x="712" y="228" font-size="12" fill="#374151">Selection read model</text><path d="M560 250H690" fill="none" stroke="#4b5563" stroke-dasharray="5 4"/><text x="590" y="241" font-size="11" fill="#667085">조회 경로</text>
+        </svg>
+        <figcaption>핵심 엔티티, PK·FK, 1:N 관계를 한 눈에 읽을 수 있도록 정리한 ERD</figcaption>
+    </figure>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" role="img" aria-label="data">
+            <defs>
+                <marker id="data" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <path d="M0 1 L7 4 L0 7" fill="none" stroke="#444"/>
+                </marker>
+            </defs>
+            <text x="5" y="20" font-size="14" fill="#222">이전 / 속성이 반복되는 레코드</text>
+            <rect x="5" y="50" width="230" height="153" fill="white" stroke="#999"/>
+            <text x="19" y="74" font-size="15" fill="#222">LEGACY RECORD</text>
+            <path d="M5 86h230" stroke="#ddd"/>
+            <text x="19" y="109" font-size="12" fill="#555">entity_id</text>
+            <text x="19" y="131" font-size="12" fill="#555">resource_name · category_text</text>
+            <text x="19" y="153" font-size="12" fill="#555">event_payload · status</text>
+            <text x="19" y="175" font-size="12" fill="#555">organization_key : text</text>
+            <path d="M235 125H290" fill="none" stroke="#555" stroke-width="1.3"/>
+            <text x="251" y="112" font-size="12" fill="#222">분리</text>
+            <rect x="315" y="45" width="190" height="101" fill="white" stroke="#999"/>
+            <text x="329" y="69" font-size="15" fill="#222">RESOURCE</text>
+            <path d="M315 81h190" stroke="#ddd"/>
+            <text x="329" y="104" font-size="12" fill="#555">PK id</text>
+            <text x="329" y="126" font-size="12" fill="#555">FK category_id</text>
+            <rect x="565" y="45" width="190" height="101" fill="white" stroke="#999"/>
+            <text x="579" y="69" font-size="15" fill="#222">CATEGORY</text>
+            <path d="M565 81h190" stroke="#ddd"/>
+            <text x="579" y="104" font-size="12" fill="#555">PK id</text>
+            <text x="579" y="126" font-size="12" fill="#555">label</text>
+            <path d="M505 90H565" fill="none" stroke="#555" stroke-width="1.3"/>
+            <text x="516" y="80" font-size="11" fill="#222">N : 1</text>
+            <rect x="315" y="207" width="190" height="101" fill="white" stroke="#999"/>
+            <text x="329" y="231" font-size="15" fill="#222">ASSIGNMENT</text>
+            <path d="M315 243h190" stroke="#ddd"/>
+            <text x="329" y="266" font-size="12" fill="#555">FK entity_id</text>
+            <text x="329" y="288" font-size="12" fill="#555">FK resource_id</text>
+            <rect x="565" y="207" width="190" height="101" fill="white" stroke="#999"/>
+            <text x="579" y="231" font-size="15" fill="#222">EVENT</text>
+            <path d="M565 243h190" stroke="#ddd"/>
+            <text x="579" y="266" font-size="12" fill="#555">FK resource_id</text>
+            <text x="579" y="288" font-size="12" fill="#555">status · payload</text>
+            <path d="M410 207V146" fill="none" stroke="#555" stroke-width="1.3"/>
+            <text x="418" y="180" font-size="11" fill="#222">N : 1</text>
+            <path d="M660 207V175H460V146" fill="none" stroke="#555" stroke-width="1.3"/>
+            <rect x="805" y="45" width="190" height="101" fill="white" stroke="#999"/>
+            <text x="819" y="69" font-size="15" fill="#222">ENTITY</text>
+            <path d="M805 81h190" stroke="#ddd"/>
+            <text x="819" y="104" font-size="12" fill="#555">PK id</text>
+            <text x="819" y="126" font-size="12" fill="#555">FK organization_id : UUID</text>
+            <path d="M505 264H780V100H805" fill="none" stroke="#555" stroke-width="1.3"/>
+            <text x="770" y="246" font-size="11" fill="#222">N : 1</text>
+            <text x="5" y="246" font-size="13" fill="#777">문자열 매칭에 의존</text>
+            <text x="5" y="270" font-size="13" fill="#777">속성 변경 시 여러 행에 영향</text>
+            <text x="5" y="308" font-size="11" fill="#777">개념도 · 엔티티명 일반화 · 확인된 관계만 축약</text>
+        </svg>
+        <figcaption>실제 조회 변경을 바탕으로 재구성한 관계와 조회 흐름</figcaption>
+    </figure>
+    <div class="metric-grid metric-grid--three">
+        <div><b>4</b><span>핵심 엔티티로 분리</span></div>
+        <div><b>3</b><span>분석 조회 저장소</span></div>
+        <div><b>1</b><span>테넌트 키 UUID 전환</span></div>
+    </div>
+    <div class="steps rule">
+        <div><b>문제</b>
+            <p>이름 기반 매칭과 레거시 이력 조회가 화면마다 흩어져 있었습니다.</p>
+        </div>
+        <div><b>구현</b>
+            <p>관계 키 기반 조회로 전환하고 이력·카탈로그·선택 목록을 3개 저장소로 분리했습니다.</p>
+        </div>
+        <div><b>검증 범위</b>
+            <p>구조 수치는 코드와 조회 경로를 기준으로 검증했습니다.</p>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>03</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>04 / 11</span>
+    </div>
+    <header><h1>상호작용 시스템: 레이아웃 편집·CRUD</h1>
+        <p>자동 배치 뒤 수동 조정을 유지하고, 생성·수정·조회 화면에서 같은 데이터를 일관되게 다루도록 개선했습니다.</p>
+    </header>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 275" role="img" aria-label="editor">
+            <defs>
+                <marker id="editor" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <path d="M0 1 L7 4 L0 7" fill="none" stroke="#444"/>
+                </marker>
+            </defs>
+            <text x="5" y="20" font-size="14" fill="#222">자동 배치</text>
+            <text x="360" y="20" font-size="14" fill="#222">수동 이동·리사이즈</text>
+            <text x="720" y="20" font-size="14" fill="#222">조정 이후</text>
+            <rect x="5" y="40" width="270" height="205" fill="none" stroke="#aaa"/>
+            <path d="M95 40V245" stroke="#e5e5e5"/>
+            <path d="M185 40V245" stroke="#e5e5e5"/>
+            <rect x="360" y="40" width="270" height="205" fill="none" stroke="#aaa"/>
+            <path d="M450 40V245" stroke="#e5e5e5"/>
+            <path d="M540 40V245" stroke="#e5e5e5"/>
+            <rect x="720" y="40" width="270" height="205" fill="none" stroke="#aaa"/>
+            <path d="M810 40V245" stroke="#e5e5e5"/>
+            <path d="M900 40V245" stroke="#e5e5e5"/>
+            <rect x="18" y="53" width="155" height="70" fill="#efefef" stroke="#555"/>
+            <rect x="18" y="136" width="244" height="92" fill="#fafafa" stroke="#999"/>
+            <rect x="463" y="53" width="155" height="90" fill="#efefef" stroke="#555"/>
+            <rect x="373" y="158" width="244" height="70" fill="#fafafa" stroke="#999"/>
+            <rect x="823" y="53" width="155" height="90" fill="#efefef" stroke="#555"/>
+            <rect x="733" y="158" width="244" height="70" fill="#fafafa" stroke="#999"/>
+            <path d="M290 143H342" fill="none" stroke="#555" stroke-width="1.3"/>
+            <path d="M645 143H702" fill="none" stroke="#555" stroke-width="1.3"/>
+            <text x="32" y="80" font-size="14" fill="#222">A</text>
+            <text x="32" y="162" font-size="14" fill="#222">B</text>
+            <text x="480" y="80" font-size="14" fill="#222">A</text>
+            <text x="387" y="187" font-size="14" fill="#222">B</text>
+            <text x="840" y="80" font-size="14" fill="#222">A</text>
+            <text x="747" y="187" font-size="14" fill="#222">B</text>
+            <text x="722" y="269" font-size="12" fill="#777">위치 보존 · 경계 동기화</text>
+        </svg>
+        <figcaption>비식별 편집기 동작 개념도</figcaption>
+    </figure>
+    <div class="steps rule">
+        <div><b>위치 유지</b>
+            <p>리사이즈 후 기존 배치 좌표 보존</p>
+        </div>
+        <div><b>경계 동기화</b>
+            <p>그리드 점유 폭과 그룹 콘텐츠 폭 일치</p>
+        </div>
+        <div><b>드래그 안정화</b>
+            <p>미리보기 흔들림과 교환 순서 보완</p>
+        </div>
+    </div>
+    <div class="rule"><h2>공유 데이터 계약 → 4개 생성·수정 화면</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 145" role="img" aria-label="crud">
+            <defs>
+                <marker id="crud" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <path d="M0 1 L7 4 L0 7" fill="none" stroke="#444"/>
+                </marker>
+            </defs>
+            <rect x="5" y="32" width="185" height="70" fill="white" stroke="#999"/>
+            <text x="19" y="56" font-size="15" fill="#222">공유 데이터 계약</text>
+            <path d="M190 68H260V32H325" fill="none" stroke="#555" stroke-width="1.3"/>
+            <path d="M260 68V112H325" fill="none" stroke="#555" stroke-width="1.3"/>
+            <rect x="325" y="5" width="230" height="58" fill="white" stroke="#999"/>
+            <text x="339" y="29" font-size="15" fill="#222">유형 A 생성 / 수정</text>
+            <rect x="325" y="85" width="230" height="58" fill="white" stroke="#999"/>
+            <text x="339" y="109" font-size="15" fill="#222">유형 B 생성 / 수정</text>
+            <path d="M555 35H620V73H690" fill="none" stroke="#555" stroke-width="1.3"/>
+            <path d="M555 112H620V73" fill="none" stroke="#555" stroke-width="1.3"/>
+            <rect x="690" y="37" width="305" height="70" fill="white" stroke="#999"/>
+            <text x="704" y="61" font-size="15" fill="#222">저장 → 필터 → 재조회</text>
+        </svg>
+        <p class="note">2개 업무 유형의 생성·수정에 동일한 2개 필드를 연결했습니다.</p>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>04</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>05 / 11</span>
+    </div>
+    <header><h1>전환 흐름: 인증 전후 사용자 의도 복구</h1>
+        <p>링크 진입부터 인증, 혜택 적용, 사용 가능 상태까지 사용자의 원래 의도를 유지하는 전환 경로와 복구 경로를 구현했습니다.</p>
+    </header>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 238" role="img" aria-label="사용자 활성화 흐름">
+            <text x="5" y="25" font-size="14" fill="#222">사용자 전환 흐름</text>
+            <rect x="5" y="65" width="150" height="65" fill="white" stroke="#999"/>
+            <text x="19" y="90" font-size="15">진입 링크</text>
+            <text x="19" y="112" font-size="12" fill="#555">사용자 의도 시작</text>
+            <path d="M155 97H215" stroke="#555"/>
+            <rect x="215" y="65" width="180" height="65" fill="white" stroke="#999"/>
+            <text x="229" y="90" font-size="15">의도 보존</text>
+            <text x="229" y="112" font-size="12" fill="#555">인증 전 상태 저장</text>
+            <path d="M395 97H455" stroke="#555"/>
+            <rect x="455" y="65" width="150" height="65" fill="white" stroke="#999"/>
+            <text x="469" y="90" font-size="15">인증</text>
+            <text x="469" y="112" font-size="12" fill="#555">로그인 · 계정 생성</text>
+            <path d="M605 97H665" stroke="#555"/>
+            <rect x="665" y="65" width="165" height="65" fill="white" stroke="#999"/>
+            <text x="679" y="90" font-size="15">권한 해석</text>
+            <text x="679" y="112" font-size="12" fill="#555">혜택 · 사용 범위</text>
+            <path d="M830 97H890" stroke="#555"/>
+            <rect x="890" y="65" width="105" height="65" fill="white" stroke="#999"/>
+            <text x="904" y="90" font-size="15">활성화</text>
+            <text x="904" y="112" font-size="12" fill="#555">제품 행동</text>
+            <path d="M530 130V182H280V130" stroke="#777" fill="none" stroke-dasharray="4 4"/>
+            <text x="300" y="210" font-size="12" fill="#777">최초 연결이 누락된 경우: 인증 뒤 저장된 의도로 복구</text>
+        </svg>
+        <figcaption>링크 기반 등록, 인증 전 상태 보존, 인증 후 대체 경로, 혜택·사용량 해석, 비동기 알림을 포함한 구현 범위</figcaption>
+    </figure>
+    <div class="steps rule">
+        <div><b>의도 보존</b>
+            <p>진입 시점의 인증 상태와 목적을 기록해 다음 화면으로 전달했습니다.</p>
+        </div>
+        <div><b>복구 경로</b>
+            <p>인증 완료 뒤 저장된 정보를 바탕으로 혜택 적용을 다시 시도했습니다.</p>
+        </div>
+        <div><b>정책 분리</b>
+            <p>사용 가능 여부와 사용량 한도를 별도의 정책으로 해석해 화면 흐름과 결합했습니다.</p>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>05</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>06 / 11</span>
+    </div>
+    <header><h1>운영 엔지니어링: 권한 제어·조회 UX</h1>
+        <p>운영 화면의 검색·필터·페이지네이션을 보완하고, 역할·세션·요금제 정책과 사용량 집계를 실제 제품 제어로 연결했습니다.</p>
+    </header>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 285" role="img" aria-label="운영 요청 처리 시퀀스 다이어그램">
+            <defs><marker id="ops-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#4b5563"/></marker></defs>
+            <text x="5" y="21" font-size="14" fill="#222">운영 요청 처리 · sequence</text>
+            <rect x="62" y="38" width="150" height="38" rx="4" fill="#f1f3f6" stroke="#aeb7c2"/><text x="105" y="62" font-size="14" fill="#222">운영자</text>
+            <rect x="302" y="38" width="150" height="38" rx="4" fill="#f1f3f6" stroke="#aeb7c2"/><text x="334" y="62" font-size="14" fill="#222">운영 화면</text>
+            <rect x="542" y="38" width="150" height="38" rx="4" fill="#e9eff7" stroke="#8fa9c6"/><text x="578" y="62" font-size="14" fill="#222">정책 처리</text>
+            <rect x="782" y="38" width="150" height="38" rx="4" fill="#f1f3f6" stroke="#aeb7c2"/><text x="811" y="62" font-size="14" fill="#222">조회 저장소</text>
+            <path d="M137 76V260 M377 76V260 M617 76V260 M857 76V260" stroke="#c6cdd6" stroke-dasharray="5 5"/>
+            <path d="M137 101H377" stroke="#4b5563" marker-end="url(#ops-arrow)"/><text x="190" y="94" font-size="12" fill="#374151">검색·필터 요청</text>
+            <path d="M377 128H617" stroke="#4b5563" marker-end="url(#ops-arrow)"/><text x="427" y="121" font-size="12" fill="#374151">역할·세션 범위 확인</text>
+            <path d="M617 155H857" stroke="#4b5563" marker-end="url(#ops-arrow)"/><text x="664" y="148" font-size="12" fill="#374151">정책·사용량 조회</text>
+            <path d="M857 178H617" stroke="#64748b" stroke-dasharray="4 4" marker-end="url(#ops-arrow)"/><text x="678" y="171" font-size="12" fill="#374151">조회 가능 범위</text>
+            <path d="M617 205H377" stroke="#64748b" stroke-dasharray="4 4" marker-end="url(#ops-arrow)"/><text x="440" y="198" font-size="12" fill="#374151">조건·한도 적용</text>
+            <path d="M377 232H857" stroke="#4b5563" marker-end="url(#ops-arrow)"/><text x="519" y="225" font-size="12" fill="#374151">정규화된 파라미터로 목록·카운트 조회</text>
+            <path d="M857 255H137" stroke="#64748b" stroke-dasharray="4 4" marker-end="url(#ops-arrow)"/><text x="405" y="248" font-size="12" fill="#374151">페이지네이션 결과·알림 반영</text>
+        </svg>
+        <figcaption>권한 범위, 정책·사용량, 목록 조회가 요청과 응답 순서로 연결되는 운영 처리 시퀀스</figcaption>
+    </figure>
+    <div class="cols rule">
+        <div><h2>운영 기능</h2>
+            <p>역할과 세션을 분리하고, 요금제 기반의 사용 가능 범위와 사용량 제한을 적용했습니다. 비동기 처리 결과는 운영자와 사용자 흐름에 맞춰 알림으로 연결했습니다.</p>
+            <div class="rule"><h2>조회 기능</h2>
+                <p>검색어, 상태, 기간, 식별자 조건을 정리하고 목록 카운트와 페이지 이동이 같은 조건을 사용하도록 다듬었습니다.</p>
+            </div>
+        </div>
+        <div><h2>검증 가능한 범위</h2>
+            <pre>역할 / 세션
+        ↓
+정책 / 사용량
+        ↓
+검색·필터 / 목록 카운트
+        ↓
+페이지네이션 / 결과 재조회</pre>
+            <p class="note">역할·세션·정책·검색 조건을 같은 요청 경로에서 검증했습니다.</p>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>06</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>07 / 11</span>
+    </div>
+    <header><h1>애플리케이션 보안: 요청 경계 제어</h1>
+        <p>세션·역할·테넌트·형식·트랜잭션 경계에서 접근과 상태 변경 규칙을 적용했습니다.</p>
+    </header>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 220" role="img" aria-label="시큐어 코딩 요청 경계">
+            <text x="5" y="20" font-size="14">요청에서 데이터 변경까지의 방어 경계</text>
+            <rect x="5" y="58" width="155" height="76" fill="white" stroke="#999"/>
+            <text x="20" y="85" font-size="15">브라우저 요청</text>
+            <text x="20" y="109" font-size="12" fill="#555">링크 · 폼 · 파일</text>
+            <path d="M160 96H215" stroke="#555"/>
+            <rect x="215" y="58" width="180" height="76" fill="white" stroke="#999"/>
+            <text x="230" y="85" font-size="15">형식 · 세션 확인</text>
+            <text x="230" y="109" font-size="12" fill="#555">유효성 · 만료 · 쿠키</text>
+            <path d="M395 96H450" stroke="#555"/>
+            <rect x="450" y="58" width="180" height="76" fill="white" stroke="#999"/>
+            <text x="465" y="85" font-size="15">역할 · 테넌트 경계</text>
+            <text x="465" y="109" font-size="12" fill="#555">권한 · UUID 범위</text>
+            <path d="M630 96H685" stroke="#555"/>
+            <rect x="685" y="58" width="145" height="76" fill="white" stroke="#999"/>
+            <text x="700" y="85" font-size="15">바인딩 쿼리</text>
+            <text x="700" y="109" font-size="12" fill="#555">파라미터 분리</text>
+            <path d="M830 96H885" stroke="#555"/>
+            <rect x="885" y="58" width="110" height="76" fill="white" stroke="#999"/>
+            <text x="900" y="85" font-size="15">트랜잭션</text>
+            <text x="900" y="109" font-size="12" fill="#555">상태 변경</text>
+            <text x="220" y="181" font-size="12" fill="#777">세션 60분 · SameSite=Lax · 운영 환경 HTTPS 전용</text>
+            <text x="690" y="181" font-size="12" fill="#777">동시 사용 방지: 행 잠금</text>
+        </svg>
+        <figcaption>실제 소스에서 확인한 서버측 제어 흐름을 일반화한 구조</figcaption>
+    </figure>
+    <div class="cols rule">
+        <div><h2>실제로 적용된 보호 규칙</h2>
+            <pre>if role != required_role:&#10;  raise HTTP 403&#10;&#10;if not fullmatch('[A-Z0-9]{10}', code):&#10;  raise HTTP 400&#10;&#10;SELECT ... WHERE code = :code&#10;FOR UPDATE</pre>
+            <p class="note">역할 기반 접근 제한, 정확한 입력 형식 검증, 바인딩 파라미터, 동시 사용을 막는 행 잠금을 확인했습니다. 코드와 경로는 일반화했습니다.</p>
+        </div>
+        <div><h2>검증 가능한 수치</h2>
+            <div class="metric-grid">
+                <div><b>60m</b><span>세션 최대 수명</span></div>
+                <div><b>7d</b><span>HttpOnly 보존 쿠키</span></div>
+                <div><b>10</b><span>코드 형식 길이</span></div>
+                <div><b>30MB</b><span>클라이언트 업로드 사전 제한</span></div>
+            </div>
+            <div class="rule"><h2>추가 점검 기준</h2>
+                <p>클라이언트 용량·확장자 검사는 사용성 보호에 가깝기 때문에, 운영 환경에서는 서버측 MIME·매직바이트·용량 재검증과 다운로드 응답 정책을 함께 적용해야 합니다.</p>
+            </div>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>07</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>08 / 11</span>
+    </div>
+    <header><h1>개발 운영: 칸반 기반 작업 관리</h1>
+        <p>기능을 화면, 데이터 계약, 서버 연결, 검증 기준으로 나누고, 이슈의 상태 전환을 통해 구현 범위와 완료 조건을 투명하게 관리했습니다.</p>
+    </header>
+    <figure>
+        <img class="evidence-board" src="assets/kanban/kanban-board-redacted.png" alt="저장소와 계정 식별 정보를 마스킹한 실제 칸반 보드">
+        <figcaption>실제 협업 보드 발췌 · 저장소명과 계정 아바타는 마스킹 · 보드 집계는 팀 협업 맥락</figcaption>
+    </figure>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 270" role="img" aria-label="칸반 보드와 완료된 PWA 기능 카드"><text x="5" y="20" font-size="14" fill="#222">칸반 보드 시각화 · 상태와 WIP를 함께 관리</text><rect x="5" y="40" width="235" height="195" rx="5" fill="#f1f3f6" stroke="#cbd2d9"/><circle cx="25" cy="64" r="6" fill="none" stroke="#5b6470" stroke-width="2"/><text x="39" y="69" font-size="15" fill="#222">Todo</text><text x="93" y="69" font-size="12" fill="#667085">3</text><rect x="17" y="84" width="211" height="52" rx="5" fill="white" stroke="#d5dae1"/><text x="29" y="108" font-size="12" fill="#222">조건 · 완료 기준 정의</text><rect x="17" y="146" width="211" height="52" rx="5" fill="white" stroke="#d5dae1"/><text x="29" y="170" font-size="12" fill="#222">화면 범위와 데이터 계약</text><rect x="255" y="40" width="235" height="195" rx="5" fill="#f1f3f6" stroke="#cbd2d9"/><circle cx="275" cy="64" r="6" fill="none" stroke="#a56500" stroke-width="2"/><text x="289" y="69" font-size="15" fill="#222">In progress</text><text x="384" y="69" font-size="12" fill="#667085">WIP 2 / 5</text><rect x="267" y="84" width="211" height="76" rx="5" fill="white" stroke="#d5dae1"/><text x="279" y="108" font-size="12" fill="#222">화면 · 서버 접점 구현</text><text x="279" y="130" font-size="11" fill="#667085">상태 전이 · 오류 흐름 확인</text><rect x="267" y="171" width="211" height="27" rx="5" fill="white" stroke="#d5dae1"/><text x="279" y="189" font-size="11" fill="#667085">검증 대기</text><rect x="505" y="40" width="235" height="195" rx="5" fill="#f1f3f6" stroke="#cbd2d9"/><circle cx="525" cy="64" r="6" fill="none" stroke="#7a3cff" stroke-width="2"/><text x="539" y="69" font-size="15" fill="#222">Done</text><text x="587" y="69" font-size="12" fill="#667085">193 · team board</text><rect x="517" y="84" width="211" height="76" rx="5" fill="white" stroke="#c7b5f5"/><rect x="530" y="98" width="47" height="16" rx="8" fill="#e9ddff"/><text x="540" y="110" font-size="9" fill="#5f20ba">FEATURE</text><text x="530" y="134" font-size="12" fill="#222">모바일 접근성 / PWA</text><text x="530" y="151" font-size="10" fill="#667085">Manifest · App shell · offline</text><rect x="517" y="171" width="211" height="27" rx="5" fill="white" stroke="#d5dae1"/><text x="530" y="189" font-size="11" fill="#667085">공유 필드와 생성·수정 흐름</text><rect x="755" y="40" width="240" height="195" rx="5" fill="#f1f3f6" stroke="#cbd2d9"/><circle cx="775" cy="64" r="6" fill="none" stroke="#5b6470" stroke-width="2"/><text x="789" y="69" font-size="15" fill="#222">Hold</text><text x="830" y="69" font-size="12" fill="#667085">5</text><rect x="767" y="84" width="216" height="76" rx="5" fill="white" stroke="#d5dae1"/><text x="779" y="108" font-size="12" fill="#222">외부 결정·후속 조건 대기</text><text x="779" y="130" font-size="11" fill="#667085">완료 처리와 분리해 가시화</text><text x="5" y="259" font-size="11" fill="#777">보드 집계는 협업 규모를 나타냄 · 개인 성과는 완료 카드의 실제 구현 범위로만 기술</text></svg>
+        <figcaption>제공한 보드·이슈 화면을 바탕으로 재구성한 비식별 작업 보드</figcaption>
+    </figure>
+    <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 270" role="img" aria-label="칸반 기반 작업 흐름"><text x="5" y="22" font-size="14" fill="#222">작업 단위를 이동시키는 방식</text><rect x="5" y="48" width="220" height="166" fill="white" stroke="#999"/><text x="20" y="75" font-size="15">TODO</text><path d="M5 88h220" stroke="#ddd"/><text x="20" y="116" font-size="12" fill="#555">요구사항을 화면·필드·상태로 분해</text><text x="20" y="140" font-size="12" fill="#555">완료 조건과 예외 흐름 정의</text><path d="M225 130H270" stroke="#555" stroke-width="1.3"/><rect x="270" y="48" width="220" height="166" fill="white" stroke="#999"/><text x="285" y="75" font-size="15">IN PROGRESS</text><path d="M270 88h220" stroke="#ddd"/><text x="285" y="116" font-size="12" fill="#555">화면·공유 필드·서버 접점 구현</text><text x="285" y="140" font-size="12" fill="#555">데이터 흐름과 상태 전이 확인</text><path d="M490 130H535" stroke="#555" stroke-width="1.3"/><rect x="535" y="48" width="220" height="166" fill="white" stroke="#999"/><text x="550" y="75" font-size="15">REVIEW</text><path d="M535 88h220" stroke="#ddd"/><text x="550" y="116" font-size="12" fill="#555">생성·수정·조회 경로를 함께 검증</text><text x="550" y="140" font-size="12" fill="#555">권한·빈 상태·오류 상태 확인</text><path d="M755 130H800" stroke="#555" stroke-width="1.3"/><rect x="800" y="48" width="195" height="166" fill="white" stroke="#999"/><text x="815" y="75" font-size="15">DONE</text><path d="M800 88h195" stroke="#ddd"/><text x="815" y="116" font-size="12" fill="#555">완료 기준과 구현 범위를 남김</text><text x="815" y="140" font-size="12" fill="#555">다음 이슈의 재사용 단위로 전환</text><text x="5" y="250" font-size="11" fill="#777">보드 전체 집계는 팀 협업 맥락이며, 아래 수치는 개인 이슈에서 확인한 구현 범위입니다.</text></svg>
+        <figcaption>기능 흐름과 검증 상태를 중심으로 작업을 관리한 방식</figcaption>
+    </figure>
+    <div class="metric-grid">
+        <div><b>5</b><span>하나의 UI 이슈에서 연결한 화면 접점</span></div>
+        <div><b>2</b><span>공유 데이터 필드</span></div>
+        <div><b>4</b><span>생성·수정 폼</span></div>
+        <div><b>4</b><span>서버·DB 연결 접점</span></div>
+    </div>
+    <div class="cols rule">
+        <div><h2>이슈를 구현 단위로 나눈 사례</h2>
+            <p>공유 필드 2개를 두 업무 유형의 생성·수정 화면 4개에 연결하고, 저장과 조회를 위한 서버·DB 접점 4개를 함께 정리했습니다. 화면과 데이터 계약을 하나의 완료 기준으로 묶었습니다.</p>
+        </div>
+        <div><h2>진행 중 항목도 보이게 관리</h2>
+            <p>메시지 이력은 최초 30개를 보여 준 뒤, 이전 이력을 20–30개 단위로 추가 로드하는 설계를 이슈로 관리했습니다.</p>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>08</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>09 / 11</span>
+    </div>
+    <header><h1>기능 명세: 이슈 템플릿</h1>
+        <p>사용자 맥락·문제·해결 방향·검증 범위를 일관된 이슈 구조로 기록했습니다.</p>
+    </header>
+    <div class="cols">
+        <figure>
+            <svg class="evidence-issue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 620" role="img" aria-label="기능 이슈 작성 템플릿 구조"><rect width="500" height="620" fill="#f7f8fa"/><rect x="24" y="24" width="452" height="572" rx="7" fill="white" stroke="#cbd2d9"/><text x="48" y="65" font-size="14" fill="#667085">FEATURE ISSUE TEMPLATE</text><text x="48" y="98" font-size="21" font-weight="600" fill="#222">[기능] 명확한 사용자 변화</text><rect x="48" y="119" width="74" height="23" rx="11" fill="#e5f4f4"/><text x="60" y="135" font-size="11" fill="#176a70">ENHANCEMENT</text><rect x="132" y="119" width="58" height="23" rx="11" fill="#edf3ff"/><text x="146" y="135" font-size="11" fill="#225da5">FEATURE</text><path d="M48 164H452 M48 266H452 M48 368H452 M48 470H452" stroke="#d7dce2"/><text x="48" y="193" font-size="15" font-weight="600" fill="#222">01 / 기능 요약</text><text x="48" y="217" font-size="12" fill="#59636e">사용자에게 일어나는 변화와 범위를 한 문단으로 정의</text><text x="48" y="244" font-size="12" fill="#59636e">무엇을, 왜 지금 해결하는지 고정</text><text x="48" y="295" font-size="15" font-weight="600" fill="#222">02 / 문제·배경</text><text x="48" y="319" font-size="12" fill="#59636e">현재 흐름의 불편 · 제약 · 방치 비용</text><text x="48" y="346" font-size="12" fill="#59636e">우선순위 판단에 필요한 근거</text><text x="48" y="397" font-size="15" font-weight="600" fill="#222">03 / 제안하는 해결 방향</text><text x="48" y="421" font-size="12" fill="#59636e">화면 · 데이터 · 인프라 변경 단위와 검증 범위</text><text x="48" y="448" font-size="12" fill="#59636e">리뷰 가능한 완료 기준으로 분해</text><text x="48" y="499" font-size="15" font-weight="600" fill="#222">선택 확장 섹션</text><text x="48" y="525" font-size="12" fill="#59636e">기대 효과·가치 / 사용 사례·예시 / 추가 정보</text><text x="48" y="558" font-size="11" fill="#8a939f">필요한 근거를 선택 섹션으로 보강</text></svg>
+            <figcaption>실제 카드 구조를 비식별 템플릿으로 재구성 · 기능별 내용과 독립적으로 재사용</figcaption>
+        </figure>
+        <div>
+            <h2>기능 이슈에 사용한 작성 템플릿</h2>
+            <div class="rule"><b>01 / 기능 요약</b>
+                <p>무엇을 바꾸는지와 사용자에게 일어날 변화를 한 문단으로 정의합니다. 카드 제목만으로는 빠지기 쉬운 사용자 맥락을 고정합니다.</p>
+            </div>
+            <div class="rule"><b>02 / 문제·배경</b>
+                <p>현재 사용 흐름, 기술적 제약, 해결 목표를 기록합니다. 요청의 이유와 우선순위 판단 근거를 남깁니다.</p>
+            </div>
+            <div class="rule"><b>03 / 제안하는 해결 방향</b>
+                <p>구현 단위를 나열합니다. 이슈마다 필요한 화면·데이터·인프라 변경과 검증 범위를 명시해 리뷰 가능한 작업 단위로 만듭니다.</p>
+            </div>
+            <p class="note">선택 항목: 기대 효과·가치 / 사용 사례·예시 / 추가 정보. 필요한 경우에만 근거를 보강하는 확장 섹션으로 사용했습니다.</p>
+            <div class="selector-evidence" aria-label="기능 이슈의 우선순위와 상태 선택 UI">
+                <figure><img src="assets/kanban/priority-selector.png" alt="P0부터 P3까지 우선순위와 기준을 설명하는 선택 UI"><figcaption>우선순위는 서비스 영향도와 다음 스프린트 반영 필요성을 기준으로 정의</figcaption></figure>
+                <figure><img src="assets/kanban/status-selector.png" alt="Todo, In progress, Done, Hold 상태를 선택하는 UI"><figcaption>상태는 진행 전·진행 중·테스트 및 배포 완료·보류로 구분</figcaption></figure>
+            </div>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>09</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>10 / 11</span>
+    </div>
+    <header><h1>Progressive Web App: 설치·오프라인 경험</h1>
+        <p>실제 기능 이슈를 기준으로 Manifest, Service Worker, App Shell을 연결해 모바일 브라우저 진입을 설치 가능한 경험과 최소 오프라인 경험으로 확장했습니다.</p>
+    </header>
+    <div class="cols">
+        <figure>
+            <img class="evidence-issue" src="assets/kanban/pwa-issue-redacted.png" alt="계정, 저장소명, 날짜를 마스킹한 실제 Progressive Web App 기능 이슈">
+            <figcaption>실제 PWA 기능 이슈 발췌 · 저장소명, 계정, 날짜, 프로젝트명 마스킹</figcaption>
+        </figure>
+        <div>
+            <h2>구현한 브라우저 전달 경로</h2>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" role="img" aria-label="PWA 설치와 오프라인 폴백 흐름"><defs><marker id="pwa-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#59636e"/></marker></defs><rect x="15" y="25" width="150" height="54" rx="5" fill="#f1f3f6" stroke="#cbd2d9"/><text x="31" y="50" font-size="14" fill="#222">브라우저 진입</text><text x="31" y="68" font-size="11" fill="#59636e">시작 경로 · 아이콘</text><path d="M165 52H225" stroke="#59636e" marker-end="url(#pwa-arrow)"/><rect x="230" y="25" width="165" height="54" rx="5" fill="#e9eff7" stroke="#8fa9c6"/><text x="246" y="50" font-size="14" fill="#222">Web App Manifest</text><text x="246" y="68" font-size="11" fill="#59636e">standalone 표시 모드</text><path d="M312 79V118" stroke="#59636e" marker-end="url(#pwa-arrow)"/><rect x="230" y="123" width="165" height="54" rx="5" fill="white" stroke="#cbd2d9"/><text x="246" y="148" font-size="14" fill="#222">Service Worker</text><text x="246" y="166" font-size="11" fill="#59636e">요청 유형별 전략 적용</text><path d="M230 150H175" stroke="#59636e" marker-end="url(#pwa-arrow)"/><rect x="15" y="123" width="155" height="54" rx="5" fill="white" stroke="#cbd2d9"/><text x="31" y="148" font-size="14" fill="#222">App Shell Cache</text><text x="31" y="166" font-size="11" fill="#59636e">정적 진입 리소스</text><path d="M312 177V216" stroke="#59636e" marker-end="url(#pwa-arrow)"/><rect x="230" y="221" width="165" height="54" rx="5" fill="#222"/><text x="246" y="246" font-size="14" fill="white">오프라인 폴백</text><text x="246" y="264" font-size="11" fill="#d6dde6">기본 진입점으로 복귀</text><text x="15" y="293" font-size="11" fill="#667085">정적 자산은 Cache First, 페이지 이동은 Network First 후 폴백</text></svg>
+            <div class="rule"><b>카드의 완료 기준을 구현 경로로 연결</b>
+                <p>설치 진입점, 정적 자산 캐시, 네트워크 실패 시 기본 진입점 복귀를 하나의 기능 범위로 묶었습니다. 화면 요구와 워커 동작을 같은 이슈의 검증 대상으로 관리했습니다.</p>
+            </div>
+        </div>
+    </div>
+    <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>10</span>
+    </footer>
+</section>
+<section class="sheet">
+    <div class="running"><span class="portfolio-owner"></span><span>11 / 11</span>
+    </div>
+    <header><h1>AI-native 엔지니어링: 모델 라우팅·검증 루프</h1>
+        <p>AI를 모호한 요구를 상태 규칙으로 분해하고 실제 환경에서 반증하는 개발 협업자로 활용했습니다.</p>
+    </header>
+    <figure>
+        <svg class="workflow-diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 270" role="img" aria-label="AI-native 제품 개발의 요구사항, 구현, 검증, 이력 관리 반복 흐름">
+            <defs><marker id="arrow-ai" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#59636e"/></marker></defs>
+            <text x="10" y="22" font-size="13" fill="#667085">실제 제품 상태를 입력으로 삼고, 검증된 결과만 변경 이력으로 남기는 폐쇄 루프</text>
+            <path d="M190 94H270 M420 94H500 M650 94H730" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#arrow-ai)"/>
+            <path d="M835 135 C835 216, 165 216, 165 135" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#arrow-ai)"/>
+            <rect x="10" y="55" width="180" height="80" rx="5" fill="#f1f3f6" stroke="#cbd2d9"/><text x="27" y="83" font-size="15" fill="#222">01 / 실제 상태</text><text x="27" y="107" font-size="11" fill="#59636e">화면 · 데이터 · 사용자 행동</text><text x="27" y="123" font-size="11" fill="#59636e">재현 조건을 관찰</text>
+            <rect x="270" y="55" width="150" height="80" rx="5" fill="white" stroke="#cbd2d9"/><text x="287" y="83" font-size="15" fill="#222">02 / 규칙화</text><text x="287" y="107" font-size="11" fill="#59636e">상태 · 경계 · 충돌</text><text x="287" y="123" font-size="11" fill="#59636e">성공 조건으로 분해</text>
+            <rect x="500" y="55" width="150" height="80" rx="5" fill="white" stroke="#cbd2d9"/><text x="517" y="83" font-size="15" fill="#222">03 / AI 협업</text><text x="517" y="107" font-size="11" fill="#59636e">가설 · 수정안 · 영향 범위</text><text x="517" y="123" font-size="11" fill="#59636e">빠르게 탐색</text>
+            <rect x="730" y="55" width="190" height="80" rx="5" fill="#e9eff7" stroke="#8fa9c6"/><text x="747" y="83" font-size="15" fill="#222">04 / 실제 환경 검증</text><text x="747" y="107" font-size="11" fill="#59636e">브라우저 · 인쇄 · 인증</text><text x="747" y="123" font-size="11" fill="#59636e">DB 복원 · 객체 확인</text>
+            <rect x="355" y="184" width="290" height="58" rx="5" fill="#222"/><text x="376" y="209" font-size="14" fill="white">05 / 승인된 결과만 이력화</text><text x="376" y="228" font-size="11" fill="#d6dde6">기능 단위 변경 · 회귀 확인 · 배포 판단</text>
+            <text x="22" y="260" font-size="11" fill="#667085">사람: 제품 기준·권한·배포 판단을 보유 / AI: 탐색 비용과 구현·검증 반복 시간을 절감</text>
+        </svg>
+        <figcaption>AI의 산출물은 제안이며, 완료 판단은 실제 화면·데이터·실행 경로의 검증 결과에 기반</figcaption>
+    </figure>
+    <div class="model-routing" aria-label="Codex 기반 모델 라우팅">
+        <div><b>Codex / Luna</b><span>작은 UI 수정과 빠른 반복 구현</span></div>
+        <div><b>Codex / Terra</b><span>복잡한 상태 규칙·데이터 구조 설계</span></div>
+        <div><b>Codex / Sol</b><span>변경 영향 확인과 검증·리뷰 보조</span></div>
+    </div>
+    <div class="case-grid">
+        <div><h2>상호작용 시스템</h2><p>문서 조각을 원자적 그룹, 점유, 실제 하단 경계, 저장·복원 규칙으로 다뤘습니다. 드래그 결과는 상태 모델로 검증했습니다.</p></div>
+        <div><h2>전환 흐름</h2><p>외부 유입 식별값이 인증 전후에도 유지되고, 최종 등록 뒤 정리되는 상태 전이를 설계했습니다. 새로고침과 인앱 환경을 실제로 확인했습니다.</p></div>
+        <div><h2>데이터 경계</h2><p>개발 데이터 영역을 운영과 분리하고, 복원 대상·객체 구조·연결 경로를 검증했습니다. 스키마 후보는 AI가 제안하고 제약 조건은 사람이 승인했습니다.</p></div>
+    </div>
+    <footer><span>AI-native product engineering · 식별 정보 일반화</span><span>11</span>
+    </footer>
+</section>
+</body>
+</html>
