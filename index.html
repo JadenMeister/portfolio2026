@@ -362,6 +362,36 @@
             font-size: 12px
         }
 
+        .machine-spec {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0;
+            margin: 18px 0 20px;
+            padding: 9px 0;
+            border-top: 1px solid #cbd2d9;
+            border-bottom: 1px solid #cbd2d9
+        }
+
+        .machine-spec div {
+            display: flex;
+            align-items: baseline;
+            gap: 7px;
+            padding: 2px 14px 2px 0;
+            margin-right: 14px
+        }
+
+        .machine-spec b {
+            font-size: 10px;
+            color: #667085;
+            letter-spacing: .04em
+        }
+
+        .machine-spec span {
+            font-size: 13px;
+            color: #202020
+        }
+
         .ml-grid {
             display: grid;
             grid-template-columns:1fr 1fr;
@@ -611,14 +641,17 @@ const delay = Math.min(
     <header><h1>컴퓨터 비전: 라벨링·객체 탐지 성능 검증</h1>
         <p>이미지 라벨링과 객체 탐지 작업에 참여했습니다. 실험 로그로 모델별 검증 결과를 비교했습니다.</p>
     </header>
-    <figure><img class="plot" style="height:275px;object-fit:contain" src="assets/ml/cv-training-results.png"
-                 alt="실제 학습 결과: 손실과 정밀도, 재현율, mAP 곡선">
-        <figcaption>별도 데이터 설정의 YOLOv8x 실험 · 입력 1,280px · 최고 검증 mAP@50 90.9%, mAP@50:95 75.5%</figcaption>
-    </figure>
+    <div class="machine-spec" aria-label="머신러닝 실험 서버 사양">
+        <div><b>OS</b><span>Ubuntu 24.04.4 LTS</span></div>
+        <div><b>KERNEL</b><span>6.17.0-1014-nvidia</span></div>
+        <div><b>ARCH</b><span>aarch64</span></div>
+        <div><b>GPU</b><span>NVIDIA GB10</span></div>
+        <div><b>NVIDIA SOFTWARE</b><span>Driver 580.142 · CUDA 13.0 · nvcc 13.0.88</span></div>
+        <div><b>SYSTEM PYTHON</b><span>Python 3.12.3</span></div>
+    </div>
+    <figure><img class="plot" style="height:275px;object-fit:contain" src="assets/ml/cv-training-results.png" alt="실제 학습 결과: 손실과 정밀도, 재현율, mAP 곡선"><figcaption>별도 데이터 설정의 YOLOv8x 실험 · 입력 1,280px · 최고 검증 mAP@50 90.9%, mAP@50:95 75.5%</figcaption></figure>
     <div class="ml-grid rule">
-        <figure><img class="matrix" src="assets/ml/cv-confusion-matrix.png" alt="객체 클래스별 정규화 혼동 행렬">
-            <figcaption>동일 실험 폴더의 정규화 혼동 행렬</figcaption>
-        </figure>
+        <figure><img class="matrix" src="assets/ml/cv-confusion-matrix.png" alt="객체 클래스별 정규화 혼동 행렬"><figcaption>동일 실험 폴더의 정규화 혼동 행렬</figcaption></figure>
         <div><h2>3개 폴드에서 비교한 모델 결과</h2>
             <table class="results">
                 <thead>
@@ -740,11 +773,6 @@ const delay = Math.min(
         </svg>
         <figcaption>실제 조회 변경을 바탕으로 재구성한 관계와 조회 흐름</figcaption>
     </figure>
-    <div class="metric-grid metric-grid--three">
-        <div><b>4</b><span>핵심 엔티티로 분리</span></div>
-        <div><b>3</b><span>분석 조회 저장소</span></div>
-        <div><b>1</b><span>테넌트 키 UUID 전환</span></div>
-    </div>
     <div class="steps rule">
         <div><b>문제</b>
             <p>이름 기반 매칭과 레거시 이력 조회가 화면마다 흩어져 있었습니다.</p>
@@ -762,78 +790,68 @@ const delay = Math.min(
 <section class="sheet">
     <div class="running"><span class="portfolio-owner"></span><span>04 / 11</span>
     </div>
-    <header><h1>상호작용 시스템: 레이아웃 편집·CRUD</h1>
-        <p>자동 배치 뒤 수동 조정을 유지하고, 생성·수정·조회 화면에서 같은 데이터를 일관되게 다루도록 개선했습니다.</p>
+    <header><h1>상호작용 시스템: DOM 기반 Grid·CRUD</h1>
+        <p>서버 렌더링 화면에 재사용 가능한 Grid 모듈을 연결해 조회·선택·페이지 이동·상세·수정 흐름을 하나의 이벤트 모델로 묶었습니다.</p>
     </header>
     <figure>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 275" role="img" aria-label="editor">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 238" role="img" aria-label="DOM 기반 Grid 처리 흐름">
             <defs>
-                <marker id="editor" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <marker id="dom-grid-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
                     <path d="M0 1 L7 4 L0 7" fill="none" stroke="#444"/>
                 </marker>
             </defs>
-            <text x="5" y="20" font-size="14" fill="#222">자동 배치</text>
-            <text x="360" y="20" font-size="14" fill="#222">수동 이동·리사이즈</text>
-            <text x="720" y="20" font-size="14" fill="#222">조정 이후</text>
-            <rect x="5" y="40" width="270" height="205" fill="none" stroke="#aaa"/>
-            <path d="M95 40V245" stroke="#e5e5e5"/>
-            <path d="M185 40V245" stroke="#e5e5e5"/>
-            <rect x="360" y="40" width="270" height="205" fill="none" stroke="#aaa"/>
-            <path d="M450 40V245" stroke="#e5e5e5"/>
-            <path d="M540 40V245" stroke="#e5e5e5"/>
-            <rect x="720" y="40" width="270" height="205" fill="none" stroke="#aaa"/>
-            <path d="M810 40V245" stroke="#e5e5e5"/>
-            <path d="M900 40V245" stroke="#e5e5e5"/>
-            <rect x="18" y="53" width="155" height="70" fill="#efefef" stroke="#555"/>
-            <rect x="18" y="136" width="244" height="92" fill="#fafafa" stroke="#999"/>
-            <rect x="463" y="53" width="155" height="90" fill="#efefef" stroke="#555"/>
-            <rect x="373" y="158" width="244" height="70" fill="#fafafa" stroke="#999"/>
-            <rect x="823" y="53" width="155" height="90" fill="#efefef" stroke="#555"/>
-            <rect x="733" y="158" width="244" height="70" fill="#fafafa" stroke="#999"/>
-            <path d="M290 143H342" fill="none" stroke="#555" stroke-width="1.3"/>
-            <path d="M645 143H702" fill="none" stroke="#555" stroke-width="1.3"/>
-            <text x="32" y="80" font-size="14" fill="#222">A</text>
-            <text x="32" y="162" font-size="14" fill="#222">B</text>
-            <text x="480" y="80" font-size="14" fill="#222">A</text>
-            <text x="387" y="187" font-size="14" fill="#222">B</text>
-            <text x="840" y="80" font-size="14" fill="#222">A</text>
-            <text x="747" y="187" font-size="14" fill="#222">B</text>
-            <text x="722" y="269" font-size="12" fill="#777">위치 보존 · 경계 동기화</text>
+            <text x="5" y="19" font-size="14" fill="#222">DOM-driven data grid</text>
+            <rect x="5" y="42" width="220" height="78" fill="#f7f8fa" stroke="#999"/>
+            <text x="20" y="67" font-size="15" fill="#222">조회 응답</text>
+            <text x="20" y="91" font-size="12" fill="#555">items · page · totalPages</text>
+            <text x="20" y="108" font-size="12" fill="#555">컬럼 정의 · formatter</text>
+            <path d="M225 81H286" fill="none" stroke="#555" stroke-width="1.3" marker-end="url(#dom-grid-arrow)"/>
+            <rect x="286" y="32" width="380" height="100" fill="#e9eff7" stroke="#8fa9c6"/>
+            <text x="306" y="57" font-size="16" fill="#222">재사용 Grid 모듈</text>
+            <text x="306" y="80" font-size="12" fill="#555">renderHeader · renderRows · pagination</text>
+            <text x="306" y="100" font-size="12" fill="#555">text · checkbox · custom  /  pagination · infinite</text>
+            <text x="306" y="120" font-size="12" fill="#555">컨테이너 1곳에서 이벤트 위임</text>
+            <path d="M666 81H727" fill="none" stroke="#555" stroke-width="1.3" marker-end="url(#dom-grid-arrow)"/>
+            <rect x="727" y="42" width="268" height="78" fill="#f7f8fa" stroke="#999"/>
+            <text x="742" y="67" font-size="15" fill="#222">CRUD 화면</text>
+            <text x="742" y="91" font-size="12" fill="#555">rowClick · checkboxChange</text>
+            <text x="742" y="108" font-size="12" fill="#555">pageChange · loadMore</text>
+            <path d="M476 132V168H225" fill="none" stroke="#777" stroke-dasharray="4 4" marker-end="url(#dom-grid-arrow)"/>
+            <path d="M476 168H727V132" fill="none" stroke="#777" stroke-dasharray="4 4" marker-end="url(#dom-grid-arrow)"/>
+            <text x="318" y="185" font-size="12" fill="#555">상태 변경 → DOM 갱신 → 상세·수정·재조회</text>
+            <text x="5" y="222" font-size="12" fill="#777">초기 렌더링은 Grid가 담당하고, 무한 스크롤은 새 행만 tbody에 추가</text>
         </svg>
-        <figcaption>비식별 편집기 동작 개념도</figcaption>
+        <figcaption>조회 데이터와 CRUD 상호작용을 DOM Grid 이벤트 흐름으로 연결한 구조</figcaption>
     </figure>
-    <div class="steps rule">
-        <div><b>위치 유지</b>
-            <p>리사이즈 후 기존 배치 좌표 보존</p>
-        </div>
-        <div><b>경계 동기화</b>
-            <p>그리드 점유 폭과 그룹 콘텐츠 폭 일치</p>
-        </div>
-        <div><b>드래그 안정화</b>
-            <p>미리보기 흔들림과 교환 순서 보완</p>
-        </div>
-    </div>
-    <div class="rule"><h2>공유 데이터 계약 → 4개 생성·수정 화면</h2>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 145" role="img" aria-label="crud">
-            <defs>
-                <marker id="crud" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-                    <path d="M0 1 L7 4 L0 7" fill="none" stroke="#444"/>
-                </marker>
-            </defs>
-            <rect x="5" y="32" width="185" height="70" fill="white" stroke="#999"/>
-            <text x="19" y="56" font-size="15" fill="#222">공유 데이터 계약</text>
-            <path d="M190 68H260V32H325" fill="none" stroke="#555" stroke-width="1.3"/>
-            <path d="M260 68V112H325" fill="none" stroke="#555" stroke-width="1.3"/>
-            <rect x="325" y="5" width="230" height="58" fill="white" stroke="#999"/>
-            <text x="339" y="29" font-size="15" fill="#222">유형 A 생성 / 수정</text>
-            <rect x="325" y="85" width="230" height="58" fill="white" stroke="#999"/>
-            <text x="339" y="109" font-size="15" fill="#222">유형 B 생성 / 수정</text>
-            <path d="M555 35H620V73H690" fill="none" stroke="#555" stroke-width="1.3"/>
-            <path d="M555 112H620V73" fill="none" stroke="#555" stroke-width="1.3"/>
-            <rect x="690" y="37" width="305" height="70" fill="white" stroke="#999"/>
-            <text x="704" y="61" font-size="15" fill="#222">저장 → 필터 → 재조회</text>
+    <div class="rule">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150" role="img" aria-label="Grid와 Flex 선택 기준">
+            <text x="5" y="18" font-size="14" fill="#222">레이아웃 선택 기준</text>
+            <rect x="5" y="38" width="230" height="78" fill="#f7f8fa" stroke="#999"/>
+            <text x="20" y="63" font-size="15" fill="#222">Flex · 1차원 흐름</text>
+            <text x="20" y="86" font-size="12" fill="#555">버튼 · 네비게이션 · 모바일 스택</text>
+            <text x="20" y="103" font-size="12" fill="#555">콘텐츠 크기에 따른 유연한 정렬</text>
+            <rect x="385" y="38" width="230" height="78" fill="#e9eff7" stroke="#8fa9c6"/>
+            <text x="400" y="63" font-size="15" fill="#222">Grid · 2차원 구조</text>
+            <text x="400" y="86" font-size="12" fill="#555">목록 · 카드 · 고정 컬럼</text>
+            <text x="400" y="103" font-size="12" fill="#555">행·열 기준과 헤더 정렬 유지</text>
+            <path d="M235 77H385" stroke="#555" stroke-dasharray="4 4"/>
+            <rect x="765" y="38" width="230" height="78" fill="#f7f8fa" stroke="#999"/>
+            <text x="780" y="63" font-size="15" fill="#222">반응형 전환</text>
+            <text x="780" y="86" font-size="12" fill="#555">데스크톱: Grid 컬럼 유지</text>
+            <text x="780" y="103" font-size="12" fill="#555">모바일: Flex 1열 스택</text>
+            <path d="M615 77H765" stroke="#555" marker-end="url(#dom-grid-arrow)"/>
         </svg>
-        <p class="note">2개 업무 유형의 생성·수정에 동일한 2개 필드를 연결했습니다.</p>
+    </div>
+    <div class="steps rule">
+        <div><b>문제</b>
+            <p>서버 렌더링 목록마다 페이지 이동·선택·행 클릭 로직이 반복되고, Flex만으로는 행·열 기준을 안정적으로 유지하기 어려웠습니다.</p>
+        </div>
+        <div><b>선택</b>
+            <p>2차원 데이터는 Grid, 1차원 조작 영역은 Flex로 분리하고 DOM 이벤트는 컨테이너 위임으로 통합했습니다.</p>
+        </div>
+        <div><b>결과</b>
+            <p>동적 행에서도 이벤트가 유지되고, 무한 스크롤은 신규 행만 추가되어 CRUD 목록을 같은 패턴으로 확장할 수 있게 했습니다.</p>
+        </div>
     </div>
     <footer><span>비공개 프로젝트 · 식별 정보 일반화</span><span>04</span>
     </footer>
@@ -1002,15 +1020,9 @@ const delay = Math.min(
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 270" role="img" aria-label="칸반 기반 작업 흐름"><text x="5" y="22" font-size="14" fill="#222">작업 단위를 이동시키는 방식</text><rect x="5" y="48" width="220" height="166" fill="white" stroke="#999"/><text x="20" y="75" font-size="15">TODO</text><path d="M5 88h220" stroke="#ddd"/><text x="20" y="116" font-size="12" fill="#555">요구사항을 화면·필드·상태로 분해</text><text x="20" y="140" font-size="12" fill="#555">완료 조건과 예외 흐름 정의</text><path d="M225 130H270" stroke="#555" stroke-width="1.3"/><rect x="270" y="48" width="220" height="166" fill="white" stroke="#999"/><text x="285" y="75" font-size="15">IN PROGRESS</text><path d="M270 88h220" stroke="#ddd"/><text x="285" y="116" font-size="12" fill="#555">화면·공유 필드·서버 접점 구현</text><text x="285" y="140" font-size="12" fill="#555">데이터 흐름과 상태 전이 확인</text><path d="M490 130H535" stroke="#555" stroke-width="1.3"/><rect x="535" y="48" width="220" height="166" fill="white" stroke="#999"/><text x="550" y="75" font-size="15">REVIEW</text><path d="M535 88h220" stroke="#ddd"/><text x="550" y="116" font-size="12" fill="#555">생성·수정·조회 경로를 함께 검증</text><text x="550" y="140" font-size="12" fill="#555">권한·빈 상태·오류 상태 확인</text><path d="M755 130H800" stroke="#555" stroke-width="1.3"/><rect x="800" y="48" width="195" height="166" fill="white" stroke="#999"/><text x="815" y="75" font-size="15">DONE</text><path d="M800 88h195" stroke="#ddd"/><text x="815" y="116" font-size="12" fill="#555">완료 기준과 구현 범위를 남김</text><text x="815" y="140" font-size="12" fill="#555">다음 이슈의 재사용 단위로 전환</text><text x="5" y="250" font-size="11" fill="#777">보드 전체 집계는 팀 협업 맥락이며, 아래 수치는 개인 이슈에서 확인한 구현 범위입니다.</text></svg>
         <figcaption>기능 흐름과 검증 상태를 중심으로 작업을 관리한 방식</figcaption>
     </figure>
-    <div class="metric-grid">
-        <div><b>5</b><span>하나의 UI 이슈에서 연결한 화면 접점</span></div>
-        <div><b>2</b><span>공유 데이터 필드</span></div>
-        <div><b>4</b><span>생성·수정 폼</span></div>
-        <div><b>4</b><span>서버·DB 연결 접점</span></div>
-    </div>
     <div class="cols rule">
         <div><h2>이슈를 구현 단위로 나눈 사례</h2>
-            <p>공유 필드 2개를 두 업무 유형의 생성·수정 화면 4개에 연결하고, 저장과 조회를 위한 서버·DB 접점 4개를 함께 정리했습니다. 화면과 데이터 계약을 하나의 완료 기준으로 묶었습니다.</p>
+            <p>공유 필드와 생성·수정 화면을 같은 데이터 계약으로 연결하고, 저장·조회에 필요한 서버와 DB 접점까지 하나의 완료 범위로 묶었습니다.</p>
         </div>
         <div><h2>진행 중 항목도 보이게 관리</h2>
             <p>메시지 이력은 최초 30개를 보여 준 뒤, 이전 이력을 20–30개 단위로 추가 로드하는 설계를 이슈로 관리했습니다.</p>
